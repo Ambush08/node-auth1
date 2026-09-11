@@ -40,7 +40,7 @@ export const startGoogleAuthHandler = async (req: Request, res: Response) => {
        });
 
        res.redirect(url);
-       
+
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -109,6 +109,7 @@ export const googleCallbackHandler = async (req: Request, res: Response) => {
         } else {
             if(!user.isEmailVerified){
                 user.isEmailVerified = true;
+                user.isLoggedIn = true;
 
                 await user.save();
             }
@@ -134,6 +135,7 @@ export const googleCallbackHandler = async (req: Request, res: Response) => {
                 email: user.email,
                 name: user.name,
                 role: user.role,
+                isLoggedIn: user.isLoggedIn,
                 isEmailVerified: user.isEmailVerified,
                 isTwoFactorEnabled: user.isTwoFactorEnabled
             },

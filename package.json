@@ -19,6 +19,8 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.9.4",
     "nodemailer": "^10.0.0",
+    "otplib": "^13.5.0",
+    "qrcode": "^1.5.4",
     "zod": "^4.5.4"
   },
   "devDependencies": {
