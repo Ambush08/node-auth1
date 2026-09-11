@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import { OAuth2Client } from 'google-auth-library';
 
 
 dotenv.config();
@@ -13,4 +14,10 @@ const getGoogleClient = () => {
     if(!clientId || !clientSecret || !redirectUri){
         throw new Error('Google env variables missing')
     }
+
+    return new OAuth2Client({
+        clientId,
+        clientSecret,
+        redirectUri
+    })
 }

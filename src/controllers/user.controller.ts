@@ -12,7 +12,6 @@ import {
   verifyRefreshTokens,
 } from "../utils/createToken.js";
 import crypto from "crypto";
-import { now } from "mongoose";
 
 dotenv.config();
 

@@ -9,10 +9,10 @@ const router = Router();
 router.post('/register', registerUser);
 
 //Login users
-router.post('/login', userAuth, loginUser);
+router.post('/login', loginUser);
 
 //Login admin
-router.post('/login/admin', userAuth, adminAuth, loginUser);
+router.post('/login/admin', loginUser);
 
 //Verify users email
 router.get('/verify-email', handleVerifyEmail);
