@@ -2,6 +2,7 @@ import { Router } from "express";
 import { forgotPassword, handleVerifyEmail, loginUser, logout, refreshTokenHandler, registerUser, resetPassword } from "../controllers/user.controller.js";
 import { userAuth } from "../middleware/auth.middleware.js";
 import { adminAuth } from "../middleware/admin.middleware.js";
+import { googleCallbackHandler, startGoogleAuthHandler } from "../controllers/google.controller.js";
 
 const router = Router();
 
@@ -27,6 +28,12 @@ router.post('/logout', logout);
 router.post('/forgot-password', forgotPassword);
 
 //Reset password 
-router.post('/reset-password', resetPassword)
+router.post('/reset-password', resetPassword);
+
+//Google OAuth 
+router.get('/google', startGoogleAuthHandler);
+
+//Google OAuth callback handler
+router.get('/google/callback', googleCallbackHandler)
 
 export default router;
